@@ -7,11 +7,16 @@ int main() {
 	std::cin >> k;
 	std::cin >> m;
 	std::cin >> n;
-	if (n > k) {
-		a = (n / k * 2 * m) + 2 * m;
+	if (n <= k) {
+		a = 2 * m;
 	}
 	else {
-		a = 2 * m;
+		if (n * 2 % k == 0) {
+			a = 2 * n / k * m;
+		}
+		else {
+			a = 2 * n / k * m + m;
+		}
 	}
 	std::cout << a;
 	return EXIT_SUCCESS;
