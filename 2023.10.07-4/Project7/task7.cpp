@@ -14,6 +14,7 @@ int main(int, char**)
 	}
 
 	for (int i = 0; i < n; ++i)
+	{
 		if (*(a + i) <= 0)
 		{
 			for (int j = i; j < n - 1; ++j)
@@ -23,9 +24,12 @@ int main(int, char**)
 			--n;
 			--i;
 		}
+	}
 
 	for (int i = 0; i < n; i++)
+	{
 		std::cout << *(a + i) << " ";
+	}
 
 	free(a);
 
