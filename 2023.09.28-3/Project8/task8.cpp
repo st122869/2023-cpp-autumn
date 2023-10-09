@@ -18,7 +18,7 @@ int main(int argc, char* argv[]) {
 		}
 	}
 	if (n > a && n > b) {
-		std::cout << "Imposible";
+		std::cout << "Impossible";
 
 	}
 	else {
