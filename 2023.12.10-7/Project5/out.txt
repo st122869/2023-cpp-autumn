@@ -1,1 +1,1 @@
-str1 is less than str2
+str1 < str2

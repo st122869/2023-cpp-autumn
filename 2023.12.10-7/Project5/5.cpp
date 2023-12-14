@@ -18,7 +18,7 @@ int strcmp(char* a, char* b)
     return *a - *b;
 }
 
-int main(int argc, char* argv[])
+int main(int argc, char** argv)
 {
     FILE* f = fopen("in.txt", "r");
 
@@ -34,15 +34,15 @@ int main(int argc, char* argv[])
 
     if (n > 0) 
     {
-        fprintf(f, "%s", "str1 is greater than str2");
+        fprintf(f, "%s", "str1 > str2");
     }
     else if (n < 0) 
     {
-        fprintf(f, "%s", "str1 is less than str2");
+        fprintf(f, "%s", "str1 < str2");
     }
     else 
     {
-        fprintf(f, "%s", "str1 is equal to str2");
+        fprintf(f, "%s", "str1 = str2");
     }
 
     fclose(f);

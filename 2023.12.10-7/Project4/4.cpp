@@ -18,7 +18,7 @@ char* ssubstr(const char* str, int b, int a)
 	return (sub - len);
 }
 
-int main(int argc, char* argv[])
+int main(int argc, char** argv)
 {
 	FILE* f = fopen("in.txt", "r");
 

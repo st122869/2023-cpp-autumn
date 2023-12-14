@@ -24,14 +24,14 @@ int sstrstr(char* a, char* b)
     return res;
 }
 
-int main(int argc, char* argv[])
+int main(int argc, char** argv)
 {
     FILE* f = fopen("in.txt", "r");
 
     char str1[256] = { 0 };
     char str2[256] = { 0 };
-    fgets(str1, 10, f);
-    fgets(str2, 10, f);
+    fgets(str1, 100, f);
+    fgets(str2, 100, f);
 
     fclose(f);
 
