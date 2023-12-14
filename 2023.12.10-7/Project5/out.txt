@@ -1,0 +1,1 @@
+str1 is less than str2
