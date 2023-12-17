@@ -5,15 +5,13 @@
 char* ssubstr(const char* str, int b, int a)
 {
 	int len = a - b;
-	char* sub = (char*)malloc(sizeof(char) * (len + 1));
+	char* sub = (char*)calloc(len + 1, sizeof(char));
 
 	for (int i = b; i < a && (*(str + i) != '\0'); i++)
 	{
 		*sub = *(str + i);
 		sub++;
 	}
-
-	*sub = '\0';
 
 	return (sub - len);
 }
@@ -23,14 +21,15 @@ int main(int argc, char** argv)
 	FILE* f = fopen("in.txt", "r");
 
 	char str[256] = { 0 };
-	fgets(str, 100, f);
+	fgets(str, sizeof(str), f);
 
 	fclose(f);
 
-	char* res = ssubstr(str, 4, 10);
+	char* res = ssubstr(str, 2, 5);
 
 	f = fopen("out.txt", "w");
 	fprintf(f, "%s", res);
+
 	fclose(f);
 
 	return EXIT_SUCCESS;

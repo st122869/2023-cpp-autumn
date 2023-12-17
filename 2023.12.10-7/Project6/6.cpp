@@ -12,8 +12,9 @@ int sstrlen(char* str)
 char* sstrmult(char* str, int n)
 {
     int len = (sstrlen(str)) * n;
-    char* res = (char*)malloc(sizeof(char*) * (len + 1));
+    char* res = (char*)calloc(len, sizeof(char*));
     int a = 0;
+
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < sstrlen(str); j++)
@@ -22,7 +23,6 @@ char* sstrmult(char* str, int n)
             a++;
         }
     }
-    res[len] = '\0';
 
     return res;
 }
@@ -32,14 +32,10 @@ int main(int argc, char** argv)
     FILE* f = fopen("in.txt", "r");
 
     char str[256] = { 0 };
-    fgets(str, 100, f);
-
-    int n = 0;
-    fscanf(f, "%s", &n);
-
+    fgets(str, sizeof(str), f);
     fclose(f);
 
-    char* res = sstrmult(str, n);
+    char* res = sstrmult(str, 3);
 
     f = fopen("out.txt", "w");
     fprintf(f, "%s", res);
