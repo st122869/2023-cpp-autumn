@@ -2,26 +2,21 @@
 #include<cstdio>
 #include<cstdlib>
 
-int sstrstr(char* a, char* b)
+int sstrstr(char* str1, char* str2)
 {
     int res = 0;
-    int i = 0;
-    int j = 0;
-    while (a[i] != '\0')
+    int a = 0;
+    int b = 0;
+    while (str1[a] != '\0')
     {
-        if (a[i] == b[i + j])
-        {
-            res = j;
-            i++;
-        }
-        else
-        {
-            i = 0;
-            j++;
-        }
+            if (str1[a] == str2[b])
+            {
+                res = a;
+            }
+            a++;
     }
 
-    return res;
+    return (res - 1);
 }
 
 int main(int argc, char** argv)
@@ -30,15 +25,16 @@ int main(int argc, char** argv)
 
     char str1[256] = { 0 };
     char str2[256] = { 0 };
-    fgets(str1, 100, f);
-    fgets(str2, 100, f);
+    fgets(str1, sizeof(str1), f);
+    fgets(str2, sizeof(str2), f);
 
     fclose(f);
 
-    char res = sstrstr(str1, str2);
+    int res = sstrstr(str1, str2);
 
     f = fopen("out.txt", "w");
-    fprintf(f, "%s", res);
+
+    fprintf(f, "%d", res);
     fclose(f);
 
     return EXIT_SUCCESS;

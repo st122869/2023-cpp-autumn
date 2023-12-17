@@ -25,7 +25,7 @@ int main(int argc, char** argv)
 			words++;
 			len_of_snt++;
 		}
-		else if (ch == '.')
+		else if (ch == '.' || ch == '?')
 		{
 			if (len_of_snt > max)
 			{
@@ -38,12 +38,18 @@ int main(int argc, char** argv)
 		}
 	}
 
-	fclose(f);
+	FILE* f2 = fopen("out.txt", "w");
+	fprintf(f2, "%d\n", words);
 
-	FILE* f = fopen("out.txt", "w");
-	fprintf(f, "%s", words);
-	fprintf(f, "%s", max);
+	fseek(f, max_start, SEEK_SET);
+
+	for (int i = max_start; i < max_end + 1; i++)
+	{
+		fprintf(f2, "%c", fgetc(f));
+	}
+
 	fclose(f);
+	fclose(f2);
 
 	return EXIT_SUCCESS;
 }
