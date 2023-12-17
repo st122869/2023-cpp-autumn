@@ -7,13 +7,13 @@ char* ssubstr(const char* str, int b, int a)
 	int len = a - b;
 	char* sub = (char*)calloc(len + 1, sizeof(char));
 
-	for (int i = b; i < a && (*(str + i) != '\0'); i++)
+	for (int i = b; i < a; i++)
 	{
-		*sub = *(str + i);
+		*sub = str[i];
 		sub++;
 	}
 
-	return (sub - len);
+	return sub - len;
 }
 
 int main(int argc, char** argv)
